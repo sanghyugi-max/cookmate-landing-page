@@ -15,7 +15,7 @@ window.COOKMATE_CONFIG = {
   navigation: [ { label: "작동 방식", target: "how" }, { label: "도입 장점", target: "benefits" }, { label: "제품 정보", target: "specs" }, { label: "자주 묻는 질문", target: "faq" } ],
   buttons: { consult: "도입 상담하기", watch: "작동 영상 보기", phone: "전화 상담", skip: "본문 바로가기", backTop: "맨 위로", youtube: "유튜브에서 보기" },
   // 전화는 숫자와 +, -만 사용. 상담 URL은 https://로 시작하는 실제 주소를 입력합니다.
-  contact: { phone: "", url: "", pending: "상담 정보 등록 필요", note: "상담 채널 준비 중입니다. 실제 전화번호 또는 상담 링크를 등록해 주세요.", business: "[등록 필요] 회사명 · 대표자 · 사업자등록번호 · 주소", hours: "[등록 필요] 상담 운영시간" },
+  contact: { phone: "", url: "", pending: "상담 정보 등록 필요", note: "상담 채널 준비 중입니다. 실제 전화번호 또는 상담 링크를 등록해 주세요.", business: "회사명 : (주)쿡메이트 · 대표자 : 이승렬\n사업자등록번호 : 259-87-00807\n주소 : 충청남도 천안시 서북구 직산읍 금곡로 113-25", hours: "[등록 필요] 상담 운영시간" },
   hero: {
     eyebrow: "주방의 반복 작업을 바꾸는 선택",
     title: "삼겹살, 이제 사람이\n뒤집지 마세요.",
