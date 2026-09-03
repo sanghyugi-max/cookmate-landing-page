@@ -21,7 +21,16 @@
   const badge = (text = c.labels.placeholder) => `<span class="badge">${e(text)}</span>`;
   const head = s => `<div class="section-head"><p class="eyebrow">${e(s.eyebrow)}</p><h2>${e(s.title)}</h2>${s.intro ? `<p>${e(s.intro)}</p>` : ''}${s.placeholder ? badge(c.labels.example) : ''}</div>`;
   const section = (id, s, body, soft = false) => `<section id="${id}" class="section${soft ? ' soft' : ''}"><div class="wrap">${head(s)}${body}</div></section>`;
-  const modelCards = () => c.specs.models?.length ? '<div class="grid three model-grid">' + c.specs.models.map(m => `<article class="model-card">${safeURL(m.image,true) ? `<img class="model-photo" src="${e(safeURL(m.image,true))}" alt="${e(m.alt)}" loading="lazy">` : ''}<div class="model-body"><span class="ordinal">${e(m.code)}</span><h3>${e(m.name)}</h3><dl>${['size','gas','power','weight'].map(k => `<div><dt>${e(c.specs.modelLabels[k])}</dt><dd>${e(m[k])}</dd></div>`).join('')}</dl></div></article>`).join('') + '</div>' : '';
+  // 원본 카탈로그는 그대로 보관하고 제품 사진 영역만 화면에 표시합니다.
+  const modelPhoto = m => {
+    const url = safeURL(m.image,true); if (!url) return '';
+    const crop = m.photoCrop;
+    if (!crop) return `<img class="model-photo" src="${e(url)}" alt="${e(m.alt)}" loading="lazy">`;
+    const {x,y,width,height,sourceWidth} = crop;
+    if (![x,y,width,height,sourceWidth].every(Number.isFinite) || width <= 0 || height <= 0) return '';
+    return `<div class="model-photo-crop" style="aspect-ratio:${width}/${height}"><img src="${e(url)}" alt="${e(m.alt)}" loading="lazy" style="width:${sourceWidth/width*100}%;left:${-x/width*100}%;top:${-y/height*100}%"></div>`;
+  };
+  const modelCards = () => c.specs.models?.length ? '<div class="grid three model-grid">' + c.specs.models.map(m => `<article class="model-card">${modelPhoto(m)}<div class="model-body"><span class="ordinal">${e(m.code)}</span><h3>${e(m.name)}</h3><dl>${['size','gas','power','weight'].map(k => `<div><dt>${e(c.specs.modelLabels[k])}</dt><dd>${e(m[k])}</dd></div>`).join('')}</dl></div></article>`).join('') + '</div>' : '';
   document.title = c.meta.title;
   document.querySelector('meta[name="description"]').content = c.meta.description;
   app.innerHTML = `

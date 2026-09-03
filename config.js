@@ -53,7 +53,8 @@ window.COOKMATE_CONFIG = {
       {
         "name": "그릴메이트 500",
         "code": "CM500",
-        "image": "",
+        "image": "assets/grillmate-models.jpg",
+        "photoCrop": { "x": 220, "y": 225, "width": 260, "height": 260, "sourceWidth": 1080 },
         "alt": "그릴메이트 500 CM500 제품 사진",
         "size": "500 × 700 × 800 mm",
         "gas": "LNG · 18,920 kcal/h (22 kW)",
@@ -63,7 +64,8 @@ window.COOKMATE_CONFIG = {
       {
         "name": "그릴메이트 750",
         "code": "CM750",
-        "image": "",
+        "image": "assets/grillmate-models.jpg",
+        "photoCrop": { "x": 476, "y": 225, "width": 260, "height": 260, "sourceWidth": 1080 },
         "alt": "그릴메이트 750 CM750 제품 사진",
         "size": "750 × 700 × 800 mm",
         "gas": "LNG · 28,380 kcal/h (33 kW)",
@@ -73,7 +75,8 @@ window.COOKMATE_CONFIG = {
       {
         "name": "그릴메이트 1100",
         "code": "CM1100",
-        "image": "",
+        "image": "assets/grillmate-models.jpg",
+        "photoCrop": { "x": 730, "y": 225, "width": 260, "height": 260, "sourceWidth": 1080 },
         "alt": "그릴메이트 1100 CM1100 제품 사진",
         "size": "1100 × 700 × 800 mm",
         "gas": "37,840 kcal/h (44 kW)",
