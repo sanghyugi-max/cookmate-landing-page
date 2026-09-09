@@ -13,9 +13,9 @@ window.COOKMATE_CONFIG = {
   // 실제 자료를 모두 반영한 뒤 false로 변경하세요. 개별 placeholder 표시는 별도입니다.
   draft: { show: true, text: "제작 시안 · 실제 사용 사례 및 상담 정보를 등록한 뒤 배포해 주세요." },
   navigation: [ { label: "작동 방식", target: "how" }, { label: "도입 장점", target: "benefits" }, { label: "제품 정보", target: "specs" }, { label: "자주 묻는 질문", target: "faq" } ],
-  buttons: { consult: "도입 상담하기", watch: "작동 영상 보기", phone: "전화 상담", skip: "본문 바로가기", backTop: "맨 위로", youtube: "유튜브에서 보기" },
+  buttons: { consult: "카카오톡 상담", watch: "작동 영상 보기", phone: "전화 상담", skip: "본문 바로가기", backTop: "맨 위로", youtube: "유튜브에서 보기" },
   // 전화는 숫자와 +, -만 사용. 상담 URL은 https://로 시작하는 실제 주소를 입력합니다.
-  contact: { phone: "", url: "", pending: "상담 정보 등록 필요", note: "상담 채널 준비 중입니다. 실제 전화번호 또는 상담 링크를 등록해 주세요.", business: "회사명 : (주)쿡메이트 · 대표자 : 이승렬\n사업자등록번호 : 259-87-00807\n주소 : 충청남도 천안시 서북구 직산읍 금곡로 113-25", hours: "[등록 필요] 상담 운영시간" },
+  contact: { phone: "1588-8925", url: "http://pf.kakao.com/_iTJFd/chat", pending: "상담 정보 등록 필요", note: "상담 채널 준비 중입니다. 실제 전화번호 또는 상담 링크를 등록해 주세요.", business: "회사명 : (주)쿡메이트 · 대표자 : 이승렬\n사업자등록번호 : 259-87-00807\n주소 : 충청남도 천안시 서북구 직산읍 금곡로 113-25", hours: "편하신 채널의 문의 남겨주세요." },
   hero: {
     eyebrow: "주방의 반복 작업을 바꾸는 선택",
     title: "삼겹살, 이제 사람이\n뒤집지 마세요.",
@@ -131,3 +131,4 @@ window.COOKMATE_CONFIG = {
   cta: { eyebrow: "LET’S COOK BETTER", title: "우리 매장에 맞는지,\n함께 확인해 보세요.", text: "사용 메뉴와 예상 조리량, 설치 공간을 알려주시면\n도입 상담을 더 구체적으로 진행할 수 있습니다." },
   labels: { placeholder: "자료 등록 필요", example: "설명 예시 · 실제 정보 확인 필요", image: "실제 사진 등록 필요", number: "단계" }
 };
+

@@ -15,8 +15,11 @@
   const phone = /^\+?[\d\s()-]{5,25}$/.test(c.contact.phone) ? c.contact.phone.replace(/[\s()-]/g, '') : '';
   const contactURL = safeURL(c.contact.url);
   const destination = contactURL || (phone ? `tel:${phone}` : '');
+  const actionIcon = href => href && String(href).startsWith('tel:')
+    ? '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.4 2.6.7 4 .7.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.4.2 2.7.7 4 .1.4 0 .8-.3 1.2l-2.3 2.2Z"/></svg>'
+    : '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.5 2 10.8c0 2.7 1.8 5.1 4.5 6.5l-1 3.6c-.1.3.3.6.6.4l4.3-2.8c.5.1 1.1.1 1.6.1 5.5 0 10-3.5 10-7.8S17.5 3 12 3Z"/></svg>';
   const action = (label = c.buttons.consult, secondary = false, href = destination) => href
-    ? `<a class="button${secondary ? ' secondary' : ''}" href="${e(href)}">${e(label)} <span aria-hidden="true">↗</span></a>`
+    ? `<a class="button${secondary ? ' secondary' : ''}" href="${e(href)}">${actionIcon(href)}${e(label)}</a>`
     : `<button type="button" class="button" aria-disabled="true" aria-describedby="contact-note">${e(c.contact.pending)}</button>`;
   const badge = (text = c.labels.placeholder) => `<span class="badge">${e(text)}</span>`;
   const head = s => `<div class="section-head"><p class="eyebrow">${e(s.eyebrow)}</p><h2>${e(s.title)}</h2>${s.intro ? `<p>${e(s.intro)}</p>` : ''}${s.placeholder ? badge(c.labels.example) : ''}</div>`;
