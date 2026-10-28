@@ -33,7 +33,9 @@
     if (![x,y,width,height,sourceWidth].every(Number.isFinite) || width <= 0 || height <= 0) return '';
     return `<div class="model-photo-crop" style="aspect-ratio:${width}/${height}"><img src="${e(url)}" alt="${e(m.alt)}" loading="lazy" style="width:${sourceWidth/width*100}%;left:${-x/width*100}%;top:${-y/height*100}%"></div>`;
   };
-  const modelCards = () => c.specs.models?.length ? '<div class="grid three model-grid">' + c.specs.models.map(m => `<article class="model-card">${modelPhoto(m)}<div class="model-body"><span class="ordinal">${e(m.code)}</span><h3>${e(m.name)}</h3><dl>${['size','gas','power','weight'].map(k => `<div><dt>${e(c.specs.modelLabels[k])}</dt><dd>${e(m[k])}</dd></div>`).join('')}</dl></div></article>`).join('') + '</div>' : '';
+  const carousel = (label, slides, extra = '') => `<div class="carousel ${extra}" role="region" aria-roledescription="슬라이드" aria-label="${e(label)}" tabindex="0"><div class="carousel-viewport">${slides.map((slide,i) => `<div class="carousel-slide" role="group" aria-roledescription="슬라이드" aria-label="${i+1} / ${slides.length}" ${i ? 'hidden' : ''}>${slide}</div>`).join('')}</div><div class="carousel-controls"><button type="button" data-prev aria-label="이전 사진">←</button><span data-count aria-live="polite">1 / ${slides.length}</span><button type="button" data-next aria-label="다음 사진">→</button><button type="button" data-play aria-label="자동 넘김 일시정지">일시정지</button></div></div>`;
+  const modelCards = () => c.specs.models?.length ? carousel('그릴메이트 제품 사진 및 사양', c.specs.models.map(m => `<article class="model-card">${modelPhoto(m)}<div class="model-body"><span class="ordinal">${e(m.code)}</span><h3>${e(m.name)}</h3><dl>${['size','gas','power','weight'].map(k => `<div><dt>${e(c.specs.modelLabels[k])}</dt><dd>${e(m[k])}</dd></div>`).join('')}</dl></div></article>`), 'model-carousel') : '';
+  const installationPhotos = () => carousel('매장 설치 사진', c.cases.items.map(x => `<article class="case"><div class="case-image"><img src="${e(safeURL(x.image,true))}" alt="${e(x.alt)}" loading="lazy"></div><div class="case-body"><span class="case-kind">${e(x.category)}</span><h3>${e(x.title)}</h3></div></article>`), 'installation-carousel');
   document.title = c.meta.title;
   document.querySelector('meta[name="description"]').content = c.meta.description;
   app.innerHTML = `
@@ -53,13 +55,47 @@
     ${section('problem', c.problem, `<div class="grid three">${c.problem.items.map((x,i) => `<article class="card"><span class="ordinal">0${i+1}</span><h3>${e(x.title)}</h3><p>${e(x.text)}</p></article>`).join('')}</div>`, true)}
     ${section('how', c.how, `<div class="grid four">${c.how.items.map((x,i) => `<article class="step"><span class="ordinal">${String(i+1).padStart(2,'0')} / ${e(c.labels.number)}</span><h3>${e(x.title)}</h3><p>${e(x.text)}</p>${x.image ? `<img class="step-media" src="${e(x.image)}" alt="${e(x.title)} 작동 영상" loading="lazy">` : ''}</article>`).join('')}</div>`)}
     ${section('benefits', c.benefits, `<div class="grid two">${c.benefits.items.map((x,i) => `<article class="benefit"><h3><span aria-hidden="true">${String(i+1).padStart(2,'0')}</span>${e(x.title)}</h3><p>${e(x.text)}</p></article>`).join('')}</div>`, true)}
-    ${section('cases', c.cases, `<div class="grid two">${c.cases.items.map(x => `<article class="case"><div class="case-image">${safeURL(x.image,true) ? `<img src="${e(safeURL(x.image,true))}" alt="${e(x.alt)}" loading="lazy">` : e(c.labels.image)}</div><div class="case-body"><span class="case-kind">${e(x.category)}</span><h3>${e(x.title)}</h3><p>${e(x.text)}</p>${x.placeholder ? badge() : ''}</div></article>`).join('')}</div>`)}
+    ${section('cases', c.cases, installationPhotos())}
     ${section('comparison', c.comparison, `<div class="table-wrap"><table class="compare"><thead><tr><th scope="col">${e(c.comparison.before)}</th><th scope="col">${e(c.comparison.after)}</th></tr></thead><tbody>${c.comparison.rows.map(r => `<tr><td>${e(r[0])}</td><td>${e(r[1])}</td></tr>`).join('')}</tbody></table></div>`, true)}
     ${section('specs', c.specs, `${modelCards()}<div class="table-wrap"><table class="specs"><tbody>${c.specs.rows.map(r => `<tr><th scope="row">${e(r.label)}</th><td>${r.placeholder ? badge() : ''}<span>${e(r.value)}</span></td></tr>`).join('')}</tbody></table></div>`)}
     ${section('faq', c.faq, c.faq.items.map(x => `<details><summary>${e(x.question)}</summary><p>${e(x.answer)}</p>${x.placeholder ? badge() : ''}</details>`).join(''))}
     <section id="contact" class="cta"><div class="wrap cta-inner"><div><p class="eyebrow">${e(c.cta.eyebrow)}</p><h2>${e(c.cta.title)}</h2><p>${e(c.cta.text)}</p></div><div><div class="actions">${action()}${phone && contactURL ? action(c.buttons.phone,true,`tel:${phone}`) : ''}</div><p id="contact-note" class="contact-note">${e(destination ? c.contact.hours : c.contact.note)}</p>${phone ? `<p>${e(c.buttons.phone)} · ${e(c.contact.phone)}</p>` : ''}</div></div></section>
     </main><footer class="footer"><div class="wrap footer-inner"><div><strong>${e(c.brand.name)} · ${e(c.brand.korean)}</strong><p>${e(c.brand.footer)}</p><p>${e(c.contact.business)}</p><p>${e(c.brand.copyright)}</p></div><a href="#top">${e(c.buttons.backTop)} ↑</a></div></footer>
     <div class="bottom-bar">${action()}</div>`;
+
+  document.querySelectorAll('.carousel').forEach(root => {
+    const slides = [...root.querySelectorAll('.carousel-slide')];
+    const count = root.querySelector('[data-count]');
+    const play = root.querySelector('[data-play]');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let index = 0, playing = !reducedMotion.matches, timer;
+    const show = next => {
+      index = (next + slides.length) % slides.length;
+      slides.forEach((slide,i) => { slide.hidden = i !== index; });
+      count.textContent = `${index+1} / ${slides.length}`;
+    };
+    const stop = () => { clearInterval(timer); };
+    const sync = () => {
+      stop();
+      play.textContent = playing ? '일시정지' : '자동 넘김';
+      play.setAttribute('aria-label', playing ? '자동 넘김 일시정지' : '사진 자동 넘김 시작');
+      if (playing && !document.hidden && !root.matches(':hover') && !root.contains(document.activeElement)) timer = setInterval(() => show(index+1), 5000);
+    };
+    root.querySelector('[data-prev]').addEventListener('click', () => { show(index-1); sync(); });
+    root.querySelector('[data-next]').addEventListener('click', () => { show(index+1); sync(); });
+    play.addEventListener('click', () => { playing = !playing; sync(); });
+    root.addEventListener('keydown', event => {
+      if (!['ArrowLeft','ArrowRight'].includes(event.key)) return;
+      event.preventDefault(); show(index + (event.key === 'ArrowRight' ? 1 : -1)); sync();
+    });
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', sync);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', () => setTimeout(sync, 0));
+    document.addEventListener('visibilitychange', sync);
+    reducedMotion.addEventListener('change', () => { playing = !reducedMotion.matches; sync(); });
+    sync();
+  });
 
   const slot = document.getElementById('video-slot');
   function videoPlaceholder(message) {

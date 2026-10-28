@@ -36,7 +36,77 @@ window.COOKMATE_CONFIG = {
   problem: { eyebrow: "01 / 주방의 고민", title: "바쁜 시간일수록,\n굽는 일에 묶이지 않도록.", intro: "주문이 몰리는 순간, 매장의 조리 흐름을 점검해 보세요.", items: [ { title: "계속 필요한 굽기 인력", text: "직원이 불 앞에서 고기를 뒤집느라 다른 작업에 손을 쓰기 어렵나요?" }, { title: "사람마다 다른 조리 결과", text: "담당자가 바뀔 때마다 익힘 정도를 다시 맞추고 있나요?" }, { title: "피크타임에 밀리는 주문", text: "반복 작업에 시간이 쏠려 전체 제공 흐름이 늦어지나요?" } ] },
   how: { eyebrow: "02 / 작동 방식", title: "투입부터 완성까지,\n한눈에 보이는 조리 흐름.", intro: "", placeholder: false, items: [ { title: "재료 투입", text: "메뉴에 맞게 준비한 재료를 투입합니다.", image: "assets/grill_pro_01.gif" }, { title: "조리 조건 설정", text: "재료에 맞는 지원 설정값을 적용합니다.", image: "assets/grill_pro_02.gif" }, { title: "자동 조리", text: "기기의 작동 상태와 조리 과정을 확인합니다.", image: "assets/grill_pro_03.gif" }, { title: "완성 및 제공", text: "익힘 상태를 확인하고 메뉴를 완성합니다.", image: "assets/grill_pro_04.gif" } ] },
   benefits: { eyebrow: "03 / 도입 장점", title: "기능을 넘어,\n주방의 일하는 방식으로.", intro: "매장에서 기대하는 변화를 기준으로 도입을 검토하세요. 효과는 메뉴, 운영 방식과 제품 모델에 따라 달라집니다.", items: [ { title: "반복 작업 부담 완화", text: "굽기 작업에 집중되던 인력의 역할을 재검토할 수 있습니다." }, { title: "조리 과정 표준화", text: "메뉴에 맞는 조리 기준을 정하고 직원 간 작업 편차를 관리합니다." }, { title: "피크타임 흐름 개선", text: "준비·조리·제공으로 이어지는 작업 동선을 함께 설계합니다." }, { title: "매장에 맞춘 도입", text: "메뉴, 필요 처리량, 설치 공간을 확인해 적합성을 상담합니다." } ] },
-  cases: { eyebrow: "04 / 실제 사용 사례", title: "우리 매장과 닮은 사례를\n확인해 보세요.", intro: "확인된 납품 사례와 사용자의 동의를 받은 후기만 게시합니다.", items: [ { category: "설치 사례", title: "매장 설치 사진과 운영 사례", text: "업종 / 사용 메뉴 / 설치 환경 / 활용 방식을 입력해 주세요.", image: "", alt: "실제 매장 설치 사진", placeholder: true }, { category: "고객 리뷰", title: "현장에서 전하는 사용 경험", text: "고객의 실제 후기와 매장명, 사용 기간을 입력해 주세요.", image: "", alt: "실제 고객 매장 사진", placeholder: true } ] },
+  cases: {
+  "eyebrow": "04 / 설치 사례",
+  "title": "매장에 설치된 그릴메이트를\n확인해 보세요.",
+  "intro": "실제 매장의 설치 사진을 한 장씩 살펴보세요.",
+  "items": [
+    {
+      "category": "G1100 설치 사례",
+      "title": "제비촌",
+      "text": "",
+      "image": "assets/install-jebichon.jpg",
+      "alt": "제비촌 매장에 설치된 그릴메이트 G1100",
+      "placeholder": false
+    },
+    {
+      "category": "G500 설치 사례",
+      "title": "도정아",
+      "text": "",
+      "image": "assets/install-dojeonga.jpg",
+      "alt": "도정아 매장에 설치된 그릴메이트 G500",
+      "placeholder": false
+    },
+    {
+      "category": "G700 설치 사례",
+      "title": "논산",
+      "text": "",
+      "image": "assets/install-nonsan.jpg",
+      "alt": "논산 매장에 설치된 그릴메이트 G700",
+      "placeholder": false
+    },
+    {
+      "category": "G700 설치 사례",
+      "title": "아산곱창",
+      "text": "",
+      "image": "assets/install-asan.jpg",
+      "alt": "아산곱창 매장에 설치된 그릴메이트 G700",
+      "placeholder": false
+    },
+    {
+      "category": "G750 설치 사례",
+      "title": "부산 골목집",
+      "text": "",
+      "image": "assets/install-busan-golmok.jpg",
+      "alt": "부산 골목집 매장에 설치된 그릴메이트 G750",
+      "placeholder": false
+    },
+    {
+      "category": "G1100 설치 사례",
+      "title": "대구 영도",
+      "text": "",
+      "image": "assets/install-daegu.jpg",
+      "alt": "대구 영도 매장에 설치된 그릴메이트 G1100",
+      "placeholder": false
+    },
+    {
+      "category": "G1100 설치 사례",
+      "title": "부산 하선집",
+      "text": "",
+      "image": "assets/install-busan-haseon.jpg",
+      "alt": "부산 하선집 매장에 설치된 그릴메이트 G1100",
+      "placeholder": false
+    },
+    {
+      "category": "G1100 설치 사례",
+      "title": "윤식",
+      "text": "",
+      "image": "assets/install-yunsik.jpg",
+      "alt": "윤식 매장에 설치된 그릴메이트 G1100",
+      "placeholder": false
+    }
+  ]
+},
   comparison: { eyebrow: "05 / BEFORE & AFTER", title: "반복하던 작업,\n어떻게 달라질까요?", intro: "자동화 도입을 검토할 때의 비교 예시입니다. 실제 지원 기능과 운영 조건을 확인하세요.", before: "기존 조리 방식", after: "자동화 도입 시 검토할 변화", rows: [ ["직원이 수시로 뒤집는 작업", "자동 조리로 반복 작업 부담 완화"], ["개인의 경험에 의존하는 굽기", "메뉴별 조리 기준 정립"], ["굽기 작업에 집중되는 인력", "준비·제공 업무와 역할 분담"], ["숙련자의 노하우 위주 교육", "표준 조리 과정 중심의 교육"] ] },
   // 모델 사진은 models 각 항목의 image에 assets/파일명을 입력하세요.
   specs: {
