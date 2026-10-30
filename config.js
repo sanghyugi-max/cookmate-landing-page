@@ -11,7 +11,7 @@ window.COOKMATE_CONFIG = {
   },
   brand: { name: "COOKMATE", korean: "쿡메이트", descriptor: "업소용 자동직화구이기", footer: "매장의 조리 흐름을 생각합니다.", copyright: "© COOKMATE. All rights reserved." },
   // 실제 자료를 모두 반영한 뒤 false로 변경하세요. 개별 placeholder 표시는 별도입니다.
-  draft: { show: true, text: "제작 시안 · 실제 사용 사례 및 상담 정보를 등록한 뒤 배포해 주세요." },
+  draft: { show: false, text: "제작 시안 · 실제 사용 사례 및 상담 정보를 등록한 뒤 배포해 주세요." },
   navigation: [ { label: "작동 방식", target: "how" }, { label: "도입 장점", target: "benefits" }, { label: "제품 정보", target: "specs" }, { label: "자주 묻는 질문", target: "faq" } ],
   buttons: { consult: "카카오톡 상담", watch: "작동 영상 보기", phone: "전화 상담", skip: "본문 바로가기", backTop: "맨 위로", youtube: "유튜브에서 보기" },
   // 전화는 숫자와 +, -만 사용. 상담 URL은 https://로 시작하는 실제 주소를 입력합니다.
