@@ -31,7 +31,7 @@ window.COOKMATE_CONFIG = {
   // youtu.be / shorts / embed 링크도 지원합니다. 유튜브는 인터넷 연결이 필요합니다.
   video: {
   type: "youtube",
-  src: "https://youtu.be/pU8GiZ0rLJM?si=g4k1iwGHsNIHNKs5",
+  src: "https://youtu.be/l3dB7_3JLHU?si=t_qPeOEImFOK8n7r",
   poster: "", captions: "", captionsLabel: "한국어 자막", captionLanguage: "ko" },
   problem: { eyebrow: "01 / 주방의 고민", title: "바쁜 시간일수록,\n굽는 일에 묶이지 않도록.", intro: "주문이 몰리는 순간, 매장의 조리 흐름을 점검해 보세요.", items: [ { title: "계속 필요한 굽기 인력", text: "직원이 불 앞에서 고기를 뒤집느라 다른 작업에 손을 쓰기 어렵나요?" }, { title: "사람마다 다른 조리 결과", text: "담당자가 바뀔 때마다 익힘 정도를 다시 맞추고 있나요?" }, { title: "피크타임에 밀리는 주문", text: "반복 작업에 시간이 쏠려 전체 제공 흐름이 늦어지나요?" } ] },
   how: { eyebrow: "02 / 작동 방식", title: "투입부터 완성까지,\n한눈에 보이는 조리 흐름.", intro: "", placeholder: false, items: [ { title: "재료 투입", text: "메뉴에 맞게 준비한 재료를 투입합니다.", image: "assets/grill_pro_01.gif" }, { title: "조리 조건 설정", text: "재료에 맞는 지원 설정값을 적용합니다.", image: "assets/grill_pro_02.gif" }, { title: "자동 조리", text: "기기의 작동 상태와 조리 과정을 확인합니다.", image: "assets/grill_pro_03.gif" }, { title: "완성 및 제공", text: "익힘 상태를 확인하고 메뉴를 완성합니다.", image: "assets/grill_pro_04.gif" } ] },
